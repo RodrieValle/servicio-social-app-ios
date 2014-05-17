@@ -69,14 +69,18 @@
 }
 
 - (IBAction)btnInsertarEncargado:(id)sender {
+    
 }
 
 - (IBAction)btnConsultarEncargado:(id)sender {
+    
 }
 
 - (IBAction)btnActualizarEncargado:(id)sender {
+    
 }
 
 - (IBAction)btnEliminarEncargado:(id)sender {
+    
 }
 @end

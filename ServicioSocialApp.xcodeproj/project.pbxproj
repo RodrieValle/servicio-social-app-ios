@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1DAD4761926EDD50059901C /* Encargado.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD4751926EDD50059901C /* Encargado.m */; };
+		D1DAD4781926EE9D0059901C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */; };
 		D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */; };
 		D1F50AFC1927318000C9D7B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F50AFB1927318000C9D7B0 /* Foundation.framework */; };
 		D1F50AFE1927318000C9D7B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F50AFD1927318000C9D7B0 /* CoreGraphics.framework */; };
@@ -35,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D1DAD4741926EDD50059901C /* Encargado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encargado.h; sourceTree = "<group>"; };
+		D1DAD4751926EDD50059901C /* Encargado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encargado.m; sourceTree = "<group>"; };
+		D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D1F1EB39192B1BE1008DEBE7 /* encargadoServicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encargadoServicioViewController.h; sourceTree = "<group>"; };
 		D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = encargadoServicioViewController.m; sourceTree = "<group>"; };
 		D1F50AF81927318000C9D7B0 /* ServicioSocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServicioSocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1DAD4781926EE9D0059901C /* libsqlite3.0.dylib in Frameworks */,
 				D1F50AFE1927318000C9D7B0 /* CoreGraphics.framework in Frameworks */,
 				D1F50B001927318000C9D7B0 /* UIKit.framework in Frameworks */,
 				D1F50AFC1927318000C9D7B0 /* Foundation.framework in Frameworks */,
@@ -85,6 +91,8 @@
 		D1F50AEF1927318000C9D7B0 = {
 			isa = PBXGroup;
 			children = (
+				D1DAD4741926EDD50059901C /* Encargado.h */,
+				D1DAD4751926EDD50059901C /* Encargado.m */,
 				D1F50B011927318000C9D7B0 /* ServicioSocialApp */,
 				D1F50B201927318000C9D7B0 /* ServicioSocialAppTests */,
 				D1F50AFA1927318000C9D7B0 /* Frameworks */,
@@ -104,6 +112,7 @@
 		D1F50AFA1927318000C9D7B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */,
 				D1F50AFB1927318000C9D7B0 /* Foundation.framework */,
 				D1F50AFD1927318000C9D7B0 /* CoreGraphics.framework */,
 				D1F50AFF1927318000C9D7B0 /* UIKit.framework */,
@@ -256,6 +265,7 @@
 			files = (
 				D1F50B121927318000C9D7B0 /* ViewController.m in Sources */,
 				D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */,
+				D1DAD4761926EDD50059901C /* Encargado.m in Sources */,
 				D1F50B0C1927318000C9D7B0 /* AppDelegate.m in Sources */,
 				D1F50B081927318000C9D7B0 /* main.m in Sources */,
 			);
