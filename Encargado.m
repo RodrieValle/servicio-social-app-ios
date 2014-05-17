@@ -9,12 +9,5 @@
 #import "Encargado.h"
 
 @implementation Encargado
-@interface Encargado : NSObject
 
-@property (assign) int idEncargado;
-@property (nonatomic, strong)NSString *nombre;
-@property (nonatomic, strong)NSString *email;
-@property (nonatomic, strong)NSString *telefono;
-@property (nonatomic, strong)NSString *facultad;
-@property (nonatomic, strong)NSString *escuela;
 @end
