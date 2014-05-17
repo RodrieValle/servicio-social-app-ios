@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Encargado : NSObject
-@property (assign) int idEncargado;
+@property (assign) int idencargado;
 @property (nonatomic, strong)NSString *nombre;
 @property (nonatomic, strong)NSString *email;
 @property (nonatomic, strong)NSString *telefono;
