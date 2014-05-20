@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *edtTelefonoEncargado;
 @property (weak, nonatomic) IBOutlet UITextField *edtFacultadEncargado;
 @property (weak, nonatomic) IBOutlet UITextField *edtEscuelaEncargado;
+@property (weak, nonatomic) IBOutlet UITableView *encargadoTableView;
 
 @end
