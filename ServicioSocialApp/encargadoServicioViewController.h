@@ -16,5 +16,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *edtFacultadEncargado;
 @property (weak, nonatomic) IBOutlet UITextField *edtEscuelaEncargado;
 @property (weak, nonatomic) IBOutlet UITableView *encargadoTableView;
+- (IBAction)btnInsertarEncargado:(id)sender;
+- (IBAction)btnConsultarEncargado:(id)sender;
+- (IBAction)btnActualizarEncargado:(id)sender;
+- (IBAction)btnEliminarEncargado:(id)sender;
 
 @end
