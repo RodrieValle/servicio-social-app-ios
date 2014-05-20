@@ -78,11 +78,49 @@
     return [arrayEncargado count];
 }
 
+-(UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *CellIdentifier=@"Cell";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (!cell) {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        
+    }
+    Encargado *aEncargado=[arrayEncargado objectAtIndex:indexPath.row];
+    cell.textLabel.text=aEncargado.nombre;
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@", aEncargado.facultad, aEncargado.escuela];
+    return cell;
+    
+}
+
+
+
 - (IBAction)btnInsertarEncargado:(id)sender {
+    char *error;
+    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+        NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO ENCARGADO(NOMBRE, EMAIL, TELEFONO, FACULTAD, ESCUELA) values ('%s', '%s', '%s', '%s', '%s')", [self.edtNombreEncargado.text UTF8String], [self.edtEmailEncargado.text UTF8String],[self.edtTelefonoEncargado.text UTF8String], [self.edtFacultadEncargado.text UTF8String], [self.edtEscuelaEncargado.text UTF8String]];
+        const char *insert_stmt=[insert_Stmt UTF8String];
+    
+        if (sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error)==SQLITE_OK) {
+            Encargado *encargado=[[Encargado alloc]init];
+            [encargado setNombre:self.edtNombreEncargado.text ];
+            [encargado setEmail:self.edtEmailEncargado.text ];
+            [encargado setTelefono:self.edtTelefonoEncargado.text ];
+            [encargado setFacultad:self.edtFacultadEncargado.text ];
+            [encargado setEscuela:self.edtEscuelaEncargado.text ];
+            [arrayEncargado addObject:encargado];
+            
+        }else{
+        NSLog(@"Encargado no Insertado");
+        }
+        sqlite3_close(encargadoDB);
+    
+    
+    }
     
 }
 
 - (IBAction)btnConsultarEncargado:(id)sender {
+    
     
 }
 
