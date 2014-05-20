@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface encargadoServicioViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *edtIdEncargado;
+@property (weak, nonatomic) IBOutlet UITextField *edtNombreEncargado;
+@property (weak, nonatomic) IBOutlet UITextField *edtEmailEncargado;
+@property (weak, nonatomic) IBOutlet UITextField *edtTelefonoEncargado;
+@property (weak, nonatomic) IBOutlet UITextField *edtFacultadEncargado;
+@property (weak, nonatomic) IBOutlet UITextField *edtEscuelaEncargado;
 
 @end
