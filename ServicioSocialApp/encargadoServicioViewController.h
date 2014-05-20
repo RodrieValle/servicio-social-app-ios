@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Encargado.h"
+
+#import "sqlite3.h"
 
 @interface encargadoServicioViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *edtIdEncargado;
