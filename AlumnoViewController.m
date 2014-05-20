@@ -9,7 +9,11 @@
 #import "AlumnoViewController.h"
 
 @interface AlumnoViewController ()
-
+{
+    NSMutableArray *arraydeAlumnos;
+    sqlite3 *alumnoDB;
+    NSString *dbPathString;
+}
 @end
 
 @implementation AlumnoViewController
@@ -35,4 +39,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)insertarAlumno:(id)sender {
+}
+
+- (IBAction)consultarAlumno:(id)sender {
+}
+
+- (IBAction)actualizarAlumno:(id)sender {
+}
+
+- (IBAction)eliminarAlumno:(id)sender {
+}
 @end

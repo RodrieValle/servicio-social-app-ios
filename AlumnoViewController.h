@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "sqlite3.h"
+#import "Alumno.h"
 
 @interface AlumnoViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *txtCarnet;
+@property (weak, nonatomic) IBOutlet UITextField *txtNombre;
+@property (weak, nonatomic) IBOutlet UITextField *txtTelefono;
+@property (weak, nonatomic) IBOutlet UITextField *txtDui;
+@property (weak, nonatomic) IBOutlet UITextField *txtNit;
+@property (weak, nonatomic) IBOutlet UITextField *txtEmail;
+@property (weak, nonatomic) IBOutlet UITableView *tblLista;
+- (IBAction)insertarAlumno:(id)sender;
+- (IBAction)consultarAlumno:(id)sender;
+- (IBAction)actualizarAlumno:(id)sender;
+- (IBAction)eliminarAlumno:(id)sender;
 
 @end

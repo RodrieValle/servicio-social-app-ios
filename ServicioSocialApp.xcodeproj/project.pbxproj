@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D17A98D9192BD4100052F2C7 /* AlumnoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */; };
 		D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1965319192BDF0600AC3DC9 /* InstitucionController.m */; };
+		D197C76A192BEEDE00B724B5 /* Alumno.m in Sources */ = {isa = PBXBuildFile; fileRef = D197C769192BEEDE00B724B5 /* Alumno.m */; };
 		D1DAD4761926EDD50059901C /* Encargado.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DAD4751926EDD50059901C /* Encargado.m */; };
 		D1DAD4781926EE9D0059901C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */; };
 		D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */; };
@@ -39,10 +40,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D17A98D7192BD4100052F2C7 /* AlumnoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlumnoViewController.h; sourceTree = "<group>"; };
-		D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlumnoViewController.m; sourceTree = "<group>"; };
+		D17A98D7192BD4100052F2C7 /* AlumnoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlumnoViewController.h; path = ../AlumnoViewController.h; sourceTree = "<group>"; };
+		D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlumnoViewController.m; path = ../AlumnoViewController.m; sourceTree = "<group>"; };
 		D1965318192BDF0600AC3DC9 /* InstitucionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstitucionController.h; sourceTree = "<group>"; };
 		D1965319192BDF0600AC3DC9 /* InstitucionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstitucionController.m; sourceTree = "<group>"; };
+		D197C768192BEEDE00B724B5 /* Alumno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alumno.h; path = ../Alumno.h; sourceTree = "<group>"; };
+		D197C769192BEEDE00B724B5 /* Alumno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alumno.m; path = ../Alumno.m; sourceTree = "<group>"; };
 		D1DAD4741926EDD50059901C /* Encargado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Encargado.h; sourceTree = "<group>"; };
 		D1DAD4751926EDD50059901C /* Encargado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encargado.m; sourceTree = "<group>"; };
 		D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
@@ -97,8 +100,6 @@
 		D1F50AEF1927318000C9D7B0 = {
 			isa = PBXGroup;
 			children = (
-				D17A98D7192BD4100052F2C7 /* AlumnoViewController.h */,
-				D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */,
 				D1DAD4741926EDD50059901C /* Encargado.h */,
 				D1DAD4751926EDD50059901C /* Encargado.m */,
 				D1F50B011927318000C9D7B0 /* ServicioSocialApp */,
@@ -132,6 +133,10 @@
 		D1F50B011927318000C9D7B0 /* ServicioSocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				D197C768192BEEDE00B724B5 /* Alumno.h */,
+				D197C769192BEEDE00B724B5 /* Alumno.m */,
+				D17A98D7192BD4100052F2C7 /* AlumnoViewController.h */,
+				D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */,
 				D1F50B0A1927318000C9D7B0 /* AppDelegate.h */,
 				D1F50B0B1927318000C9D7B0 /* AppDelegate.m */,
 				D1F50B0D1927318000C9D7B0 /* Main.storyboard */,
@@ -280,6 +285,7 @@
 				D1DAD4761926EDD50059901C /* Encargado.m in Sources */,
 				D1F50B0C1927318000C9D7B0 /* AppDelegate.m in Sources */,
 				D1F50B081927318000C9D7B0 /* main.m in Sources */,
+				D197C76A192BEEDE00B724B5 /* Alumno.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
