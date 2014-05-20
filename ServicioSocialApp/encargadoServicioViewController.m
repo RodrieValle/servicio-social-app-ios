@@ -127,9 +127,43 @@
         NSString *querySql=[NSString stringWithFormat:@"SELECT * FROM ENCARGADO"];
         const char *querysql=[querySql UTF8String];
         
-        
+        if (sqlite3_prepare(encargadoDB, querysql, -1, &statement, NULL)==SQLITE_OK) {
+            while (sqlite3_step(statement)==SQLITE_ROW) {
+                NSString *idencargado1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+
+                
+                NSString *nombre1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+                
+                NSString *email1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+                
+                NSString *telefono1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
+                
+                NSString *facultad1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
+                
+                
+                
+                NSString *escuela1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 5)];
+                
+                Encargado *encargado=[[Encargado alloc]init];
+                
+                [encargado setIdEncargado:[idencargado1 intValue]];
+                [encargado setNombre:nombre1];
+                [encargado setEscuela:email1];
+                [encargado setTelefono:telefono1];
+                [encargado setFacultad:facultad1];
+                [encargado setEscuela:escuela1];
+                [arrayEncargado addObject:encargado];
+            }
+        }
+        else {
+            NSLog(@"Lista Vacia");
+        }
+        sqlite3_close(encargadoDB);
     }
+    [[self encargadoTableView]reloadData];
 }
+
+
 
 - (IBAction)btnActualizarEncargado:(id)sender {
     
