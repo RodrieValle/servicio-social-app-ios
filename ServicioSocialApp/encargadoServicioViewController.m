@@ -121,7 +121,14 @@
 
 - (IBAction)btnConsultarEncargado:(id)sender {
     
-    
+    sqlite3_stmt *statement;
+    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+        [arrayEncargado removeAllObjects];
+        NSString *querySql=[NSString stringWithFormat:@"SELECT * FROM ENCARGADO"];
+        const char *querysql=[querySql UTF8String];
+        
+        
+    }
 }
 
 - (IBAction)btnActualizarEncargado:(id)sender {
