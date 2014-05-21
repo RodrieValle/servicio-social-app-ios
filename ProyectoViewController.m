@@ -11,7 +11,7 @@
 @interface ProyectoViewController ()
 {
     NSMutableArray *arrayProyecto;
-    sqlite3 *;
+    //sqlite3 *;
     NSString *dbPathString;
 }
 
