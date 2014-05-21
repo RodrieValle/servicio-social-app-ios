@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		294D26A6192C56E600BEFFF6 /* ProyectoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 294D26A5192C56E600BEFFF6 /* ProyectoViewController.m */; };
 		294D26A9192C5BEA00BEFFF6 /* Proyecto.m in Sources */ = {isa = PBXBuildFile; fileRef = 294D26A8192C5BEA00BEFFF6 /* Proyecto.m */; };
+		29DE5308192C768D000EE0C7 /* TipoProyecto.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DE5307192C768D000EE0C7 /* TipoProyecto.m */; };
+		29DE530B192C7AE6000EE0C7 /* TipoProyectoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29DE530A192C7AE6000EE0C7 /* TipoProyectoViewController.m */; };
 		D17A98D9192BD4100052F2C7 /* AlumnoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */; };
 		D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1965319192BDF0600AC3DC9 /* InstitucionController.m */; };
 		D197C76A192BEEDE00B724B5 /* Alumno.m in Sources */ = {isa = PBXBuildFile; fileRef = D197C769192BEEDE00B724B5 /* Alumno.m */; };
@@ -46,6 +48,10 @@
 		294D26A5192C56E600BEFFF6 /* ProyectoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProyectoViewController.m; sourceTree = "<group>"; };
 		294D26A7192C5BEA00BEFFF6 /* Proyecto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proyecto.h; sourceTree = "<group>"; };
 		294D26A8192C5BEA00BEFFF6 /* Proyecto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proyecto.m; sourceTree = "<group>"; };
+		29DE5306192C768C000EE0C7 /* TipoProyecto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoProyecto.h; sourceTree = "<group>"; };
+		29DE5307192C768D000EE0C7 /* TipoProyecto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoProyecto.m; sourceTree = "<group>"; };
+		29DE5309192C7AE6000EE0C7 /* TipoProyectoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipoProyectoViewController.h; sourceTree = "<group>"; };
+		29DE530A192C7AE6000EE0C7 /* TipoProyectoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipoProyectoViewController.m; sourceTree = "<group>"; };
 		D17A98D7192BD4100052F2C7 /* AlumnoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlumnoViewController.h; path = ../AlumnoViewController.h; sourceTree = "<group>"; };
 		D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlumnoViewController.m; path = ../AlumnoViewController.m; sourceTree = "<group>"; };
 		D1965318192BDF0600AC3DC9 /* InstitucionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstitucionController.h; sourceTree = "<group>"; };
@@ -106,6 +112,10 @@
 		D1F50AEF1927318000C9D7B0 = {
 			isa = PBXGroup;
 			children = (
+				29DE5309192C7AE6000EE0C7 /* TipoProyectoViewController.h */,
+				29DE530A192C7AE6000EE0C7 /* TipoProyectoViewController.m */,
+				29DE5306192C768C000EE0C7 /* TipoProyecto.h */,
+				29DE5307192C768D000EE0C7 /* TipoProyecto.m */,
 				294D26A7192C5BEA00BEFFF6 /* Proyecto.h */,
 				294D26A8192C5BEA00BEFFF6 /* Proyecto.m */,
 				294D26A4192C56E600BEFFF6 /* ProyectoViewController.h */,
@@ -294,8 +304,10 @@
 				D17A98D9192BD4100052F2C7 /* AlumnoViewController.m in Sources */,
 				D1F50B121927318000C9D7B0 /* ViewController.m in Sources */,
 				D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */,
+				29DE5308192C768D000EE0C7 /* TipoProyecto.m in Sources */,
 				D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */,
 				D1DAD4761926EDD50059901C /* Encargado.m in Sources */,
+				29DE530B192C7AE6000EE0C7 /* TipoProyectoViewController.m in Sources */,
 				D1F50B0C1927318000C9D7B0 /* AppDelegate.m in Sources */,
 				D1F50B081927318000C9D7B0 /* main.m in Sources */,
 				294D26A6192C56E600BEFFF6 /* ProyectoViewController.m in Sources */,
@@ -381,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -413,7 +425,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
