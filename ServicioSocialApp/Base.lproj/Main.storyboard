@@ -51,6 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-327" y="-62"/>
         </scene>
         <!--Encargado Servicio View Controller-->
         <scene sceneID="Pzd-LO-kKr">
@@ -205,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0J-GK-eWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="-859"/>
+            <point key="canvasLocation" x="532" y="-391"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="U6c-aC-Suw">
@@ -243,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OnX-cE-ypw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="-626"/>
+            <point key="canvasLocation" x="149" y="-798"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8n8-u2-azc">
@@ -267,13 +268,23 @@
                                     <segue destination="822-MJ-0XP" kind="modal" id="VhE-wq-JvY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaZ-fo-MXZ">
+                                <rect key="frame" x="42" y="143" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Alumno">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="S8K-iY-7Bo" kind="modal" id="jPf-pW-CXp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrl-fZ-FW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="318" y="-216"/>
+            <point key="canvasLocation" x="68" y="-44"/>
         </scene>
         <!--Alumno View Controller-->
         <scene sceneID="Na9-Mz-uvV">
@@ -432,7 +443,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rlc-X5-UgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="556" y="17"/>
+            <point key="canvasLocation" x="483" y="31"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
