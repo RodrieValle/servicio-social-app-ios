@@ -52,7 +52,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-335" y="-556"/>
+=======
+            <point key="canvasLocation" x="-327" y="-62"/>
+>>>>>>> FETCH_HEAD
         </scene>
         <!--Encargado Servicio View Controller-->
         <scene sceneID="Pzd-LO-kKr">
@@ -96,20 +100,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K8i-rc-gkC">
-                                <rect key="frame" x="137" y="52" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID Encargado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-VF-WPv">
-                                <rect key="frame" x="14" y="55" width="110" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="gg"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nombre" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fRz-dz-9Mu">
                                 <rect key="frame" x="14" y="93" width="85" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -181,7 +171,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Encargado de Servicio Social" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-wl-5Ow">
-                                <rect key="frame" x="20" y="20" width="272" height="21"/>
+                                <rect key="frame" x="20" y="33" width="272" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.08662707683097981" green="0.11966051164091276" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
@@ -199,7 +189,6 @@
                         <outlet property="edtEmailEncargado" destination="8Fh-Dv-zzS" id="ePR-kV-mpA"/>
                         <outlet property="edtEscuelaEncargado" destination="SXR-AJ-jtU" id="Rqb-NV-LPI"/>
                         <outlet property="edtFacultadEncargado" destination="bi9-zH-rj9" id="fgf-LX-GC6"/>
-                        <outlet property="edtIdEncargado" destination="K8i-rc-gkC" id="9JM-Kb-TYh"/>
                         <outlet property="edtNombreEncargado" destination="NHs-SU-7le" id="Hda-Uc-neQ"/>
                         <outlet property="edtTelefonoEncargado" destination="37b-XS-oHf" id="g49-bs-xYs"/>
                         <outlet property="encargadoTableView" destination="Lc8-cY-ScB" id="Bud-gF-Qy4"/>
@@ -207,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0J-GK-eWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1556" y="-859"/>
+            <point key="canvasLocation" x="544" y="-814"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="U6c-aC-Suw">
@@ -245,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OnX-cE-ypw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="-626"/>
+            <point key="canvasLocation" x="149" y="-798"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8n8-u2-azc">
@@ -269,13 +258,27 @@
                                     <segue destination="822-MJ-0XP" kind="modal" id="VhE-wq-JvY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaZ-fo-MXZ">
+                                <rect key="frame" x="42" y="143" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Alumno">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="S8K-iY-7Bo" kind="modal" id="jPf-pW-CXp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrl-fZ-FW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="-216" y="174"/>
+=======
+            <point key="canvasLocation" x="68" y="-44"/>
+>>>>>>> FETCH_HEAD
         </scene>
         <!--Alumno View Controller-->
         <scene sceneID="Na9-Mz-uvV">
@@ -434,6 +437,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rlc-X5-UgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="222" y="-833"/>
         </scene>
         <!--Tipo Proyecto View Controller-->
@@ -660,6 +664,9 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmW-Oa-TrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1107" y="-24"/>
+=======
+            <point key="canvasLocation" x="483" y="31"/>
+>>>>>>> FETCH_HEAD
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
