@@ -130,7 +130,7 @@
     return cell;
     
 }
-- (IBAction)insertarProyectoBoton:(id)sender {
+- (IBAction)insertarBoton:(id)sender {
     char *error;
     if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
         NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO TIPOPROYECTO(NOMBRE) values ('%s')", [self.nombreField.text UTF8String]];
@@ -142,19 +142,113 @@
             [arrayTipoProyecto addObject:tipoproyecto];
             
         }else{
-            NSLog(@"Encargado no Insertado");
+            NSLog(@"Tipo de Proyecto no Insertado");
         }
         sqlite3_close(encargadoDB);
         
         
     }
 }
+
 - (IBAction)consultarBoton:(id)sender {
+    
+    sqlite3_stmt *statement;
+    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+        [arrayTipoProyecto removeAllObjects];
+        NSString *querySql=[NSString stringWithFormat:@"SELECT * FROM TIPOPROYECTO"];
+        const char *querysql=[querySql UTF8String];
+        
+        if (sqlite3_prepare(encargadoDB, querysql, -1, &statement, NULL)==SQLITE_OK) {
+            while (sqlite3_step(statement)==SQLITE_ROW) {
+                
+                NSString *idtipoproeyecto1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+                
+                
+                NSString *nombre1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+                
+                /*NSString *email1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+                
+                NSString *telefono1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
+                
+                NSString *facultad1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
+                
+                
+                
+                NSString *escuela1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 5)];*/
+                
+                TipoProyecto *tipoproyecto=[[TipoProyecto alloc]init];
+                
+                [tipoproyecto setIdTipoProyecto:[idtipoproeyecto1 intValue]];
+                [tipoproyecto setNombreTipoProyecto:nombre1];
+                [arrayTipoProyecto addObject:tipoproyecto];
+            }
+        }
+        else {
+            NSLog(@"Lista Vacia");
+        }
+        sqlite3_close(encargadoDB);
+    }
+    [[self TipoProyectoTableView]reloadData];
 }
 
+    
+
+   
 - (IBAction)actualizarBoton:(id)sender {
+    
+    static sqlite3_stmt *statement=nil;
+    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+        char *update_Stmt="UPDATE TIPOPROYECTO SET NOMBRE=? WHERE IDTIPOPROYECTO=? ";
+        if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK){
+            sqlite3_bind_text(statement,1,[self.nombreField.text UTF8String], -1, SQLITE_TRANSIENT);
+            /*sqlite3_bind_text(statement,2,[self.edtEmailEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement,3,[self.edtTelefonoEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_int(statement, 4, [self.edtFacultadEncargado.text intValue]);
+            sqlite3_bind_int(statement, 5, [self.edtEscuelaEncargado.text intValue]);*/
+            
+            sqlite3_step(statement);
+            sqlite3_finalize(statement);
+            
+            TipoProyecto *tipoproyecto =[[TipoProyecto alloc]init];
+            
+            [tipoproyecto setNombreTipoProyecto:self.nombreField.text];
+            /*[encargado setEmail:self.edtEmailEncargado.text];
+            [encargado setTelefono:self.edtTelefonoEncargado.text];
+            [encargado setFacultad:self.edtFacultadEncargado.text];
+            
+            // [encargado setIdEncargado:<#(int)#>:[self.numalumnoField.text intValue]];
+            [encargado setEscuela:self.edtEscuelaEncargado.text];*/
+            [arrayTipoProyecto addObject:tipoproyecto];
+            NSLog(@"Tipo de Proyecto modificado");
+        }
+        else
+        {
+            NSLog(@"Tipo de Proyecto no modificado");
+            
+        }
+        sqlite3_close(encargadoDB);
+    }
+    
+    
+    
 }
+
 
 - (IBAction)eliminarBoton:(id)sender {
+    [[self TipoProyectoTableView]setEditing:!self.TipoProyectoTableView.editing animated:YES];
+    
+}
+
+-(void)deleteData:(NSString *)deleteQuery{
+    char *error;
+    if(sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK){
+        if(sqlite3_exec(encargadoDB, [deleteQuery UTF8String], NULL,NULL, &error)==SQLITE_OK){
+            NSLog(@"Tipo de Proyecto Eliminado");
+        }
+        else{
+            NSLog(@"Tipo de Proyecto no Eliminado");
+        }
+        sqlite3_close(encargadoDB);
+    }
 }
 @end
