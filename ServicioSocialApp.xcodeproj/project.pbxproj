@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		294D26A6192C56E600BEFFF6 /* ProyectoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 294D26A5192C56E600BEFFF6 /* ProyectoViewController.m */; };
+		294D26A9192C5BEA00BEFFF6 /* Proyecto.m in Sources */ = {isa = PBXBuildFile; fileRef = 294D26A8192C5BEA00BEFFF6 /* Proyecto.m */; };
 		D17A98D9192BD4100052F2C7 /* AlumnoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */; };
 		D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1965319192BDF0600AC3DC9 /* InstitucionController.m */; };
 		D197C76A192BEEDE00B724B5 /* Alumno.m in Sources */ = {isa = PBXBuildFile; fileRef = D197C769192BEEDE00B724B5 /* Alumno.m */; };
@@ -40,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		294D26A4192C56E600BEFFF6 /* ProyectoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProyectoViewController.h; sourceTree = "<group>"; };
+		294D26A5192C56E600BEFFF6 /* ProyectoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProyectoViewController.m; sourceTree = "<group>"; };
+		294D26A7192C5BEA00BEFFF6 /* Proyecto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Proyecto.h; sourceTree = "<group>"; };
+		294D26A8192C5BEA00BEFFF6 /* Proyecto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Proyecto.m; sourceTree = "<group>"; };
 		D17A98D7192BD4100052F2C7 /* AlumnoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AlumnoViewController.h; path = ../AlumnoViewController.h; sourceTree = "<group>"; };
 		D17A98D8192BD4100052F2C7 /* AlumnoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AlumnoViewController.m; path = ../AlumnoViewController.m; sourceTree = "<group>"; };
 		D1965318192BDF0600AC3DC9 /* InstitucionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstitucionController.h; sourceTree = "<group>"; };
@@ -100,6 +106,10 @@
 		D1F50AEF1927318000C9D7B0 = {
 			isa = PBXGroup;
 			children = (
+				294D26A7192C5BEA00BEFFF6 /* Proyecto.h */,
+				294D26A8192C5BEA00BEFFF6 /* Proyecto.m */,
+				294D26A4192C56E600BEFFF6 /* ProyectoViewController.h */,
+				294D26A5192C56E600BEFFF6 /* ProyectoViewController.m */,
 				D1DAD4741926EDD50059901C /* Encargado.h */,
 				D1DAD4751926EDD50059901C /* Encargado.m */,
 				D1F50B011927318000C9D7B0 /* ServicioSocialApp */,
@@ -278,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				294D26A9192C5BEA00BEFFF6 /* Proyecto.m in Sources */,
 				D17A98D9192BD4100052F2C7 /* AlumnoViewController.m in Sources */,
 				D1F50B121927318000C9D7B0 /* ViewController.m in Sources */,
 				D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */,
@@ -285,6 +296,7 @@
 				D1DAD4761926EDD50059901C /* Encargado.m in Sources */,
 				D1F50B0C1927318000C9D7B0 /* AppDelegate.m in Sources */,
 				D1F50B081927318000C9D7B0 /* main.m in Sources */,
+				294D26A6192C56E600BEFFF6 /* ProyectoViewController.m in Sources */,
 				D197C76A192BEEDE00B724B5 /* Alumno.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
