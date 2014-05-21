@@ -52,11 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-335" y="-556"/>
-=======
-            <point key="canvasLocation" x="-327" y="-62"/>
->>>>>>> FETCH_HEAD
         </scene>
         <!--Encargado Servicio View Controller-->
         <scene sceneID="Pzd-LO-kKr">
@@ -274,11 +270,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrl-fZ-FW2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-216" y="174"/>
-=======
-            <point key="canvasLocation" x="68" y="-44"/>
->>>>>>> FETCH_HEAD
         </scene>
         <!--Alumno View Controller-->
         <scene sceneID="Na9-Mz-uvV">
@@ -437,7 +429,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rlc-X5-UgQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="222" y="-833"/>
         </scene>
         <!--Tipo Proyecto View Controller-->
@@ -664,9 +655,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gmW-Oa-TrA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1107" y="-24"/>
-=======
-            <point key="canvasLocation" x="483" y="31"/>
->>>>>>> FETCH_HEAD
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
