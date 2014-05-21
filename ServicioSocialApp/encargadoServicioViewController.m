@@ -59,6 +59,13 @@
         
         //CREA LA BASE DE DATOS ENCARGADO
         if (sqlite3_open(dbPath, &encargadoDB)==SQLITE_OK) {
+            NSString *foreign=@"PRAGMA foreign_keys = ON";
+            const char *foreign1=[foreign UTF8String];
+            if (sqlite3_exec(encargadoDB, foreign1, NULL, NULL, &error) != SQLITE_OK)
+            {
+                NSLog(@"failed to set the foreign_key pragma");
+                return;
+            }
             //Tabla encargado
             const char *sql_stmt="CREATE TABLE encargado (idencargado INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nombre VARCHAR(100) NOT NULL, email VARCHAR(50) NOT NULL,telefono VARCHAR(8) NOT NULL, facultad VARCHAR(100) NOT NULL, escuela VARCHAR(100) NOT NULL );";
             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);

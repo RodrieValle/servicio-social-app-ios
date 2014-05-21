@@ -19,6 +19,7 @@
 @implementation AlumnoViewController
 
 -(void) crearOabrirDB{
+    NSLog(@"Dentro del metodo crear");
     NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
     NSString *docPath=[path objectAtIndex:0];
     dbPathString=[docPath stringByAppendingPathComponent:@"servicioSocial.db"];
@@ -28,12 +29,17 @@
     
     if(![fileManager fileExistsAtPath:dbPathString]){
         const char *dbPath=[dbPathString UTF8String];
-        
+        NSLog(@"la base no existe");
         //CREA LA BASE DE DATOS ENCARGADO
+        sqlite3_open(dbPath, &encargadoDB);
+        NSLog(@"%s",sqlite3_errmsg(encargadoDB));
         if (sqlite3_open(dbPath, &encargadoDB)==SQLITE_OK) {
+            NSLog(@"va a crear la base");
             //Tabla encargado
             const char *sql_stmt="CREATE TABLE encargado (idencargado INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, nombre VARCHAR(100) NOT NULL, email VARCHAR(50) NOT NULL,telefono VARCHAR(8) NOT NULL, facultad VARCHAR(100) NOT NULL, escuela VARCHAR(100) NOT NULL );";
             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
+            NSLog(@"Primera tabla? , %s",sqlite3_errmsg(encargadoDB));
+            NSLog(@"Tabla encargado");
             //Tabla alumno
             sql_stmt="create table ALUMNO (CARNET VARCHAR(7) not null primary key, NOMBRE VARCHAR(100) not null, TELEFONO VARCHAR(8) not null, DUI VARCHAR(10) not null, NIT VARCHAR(17) not null, EMAIL VARCHAR(50));";
             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
@@ -66,6 +72,7 @@
             
             
             sqlite3_close(encargadoDB);
+            NSLog(@"Cerro la base , %s",sqlite3_errmsg(encargadoDB));
         }
         
     }
@@ -87,6 +94,7 @@
     arraydeAlumnos =[[NSMutableArray alloc]init];
     [[self tblLista] setDelegate:self];
     [[self tblLista]setDataSource:self];
+    NSLog(@"En viewdidload antes de la base");
     [self crearOabrirDB];
     [_txtCarnet setDelegate:self];
     [_txtNombre setDelegate:self];
@@ -239,4 +247,9 @@
     return YES;
     
 }
+
+/*Explicare un poco lo de las versiones:
+ El commit es para confirmar cambios dentro de sus repositorios personales, o sea en sus computadoras.
+ El push es para subir al repositorio lo que han confirmado con el commit
+ El pull es para bajar los cambios desde la nube a las computadoras personales*/
 @end
