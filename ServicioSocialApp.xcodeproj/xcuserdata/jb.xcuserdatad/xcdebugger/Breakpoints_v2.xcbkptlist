@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TipoProyectoViewController.m"
-            timestampString = "422347729.872287"
+            timestampString = "422395258.582038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-insertarProyectoBoton:"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "-insertarBoton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,11 +26,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TipoProyectoViewController.m"
-            timestampString = "422389437.418571"
+            timestampString = "422395258.582038"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214">
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-actualizarBoton:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

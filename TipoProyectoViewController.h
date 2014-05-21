@@ -11,13 +11,13 @@
 #import "TipoProyecto.h"
 
 
-@interface TipoProyectoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface TipoProyectoViewController: UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nombreField;
-@property (weak, nonatomic) IBOutlet UITableView *TipoProyectoTableView;
 - (IBAction)insertarBoton:(id)sender;
-- (IBAction)consultarBoton:(id)sender;
-- (IBAction)actualizarBoton:(id)sender;
 - (IBAction)eliminarBoton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITableView *TipoProyectoTableView;
+- (IBAction)consultarBoton:(id)sender;
+- (IBAction)actualizarBoton:(id)sender;
 
 @end

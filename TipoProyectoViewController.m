@@ -34,9 +34,8 @@
     [[self TipoProyectoTableView]setDelegate:self];
     [[self TipoProyectoTableView]setDataSource:self];
     [self crearOabrirDB];
-    
-	// Do any additional setup after loading the view.
-}
+    [super viewDidLoad];
+    }
 
 - (void)didReceiveMemoryWarning
 {
@@ -44,16 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 -(void) crearOabrirDB{
     NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
@@ -130,6 +120,8 @@
     return cell;
     
 }
+
+
 - (IBAction)insertarBoton:(id)sender {
     char *error;
     if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
@@ -149,6 +141,7 @@
         
     }
 }
+
 
 - (IBAction)consultarBoton:(id)sender {
     
@@ -251,4 +244,6 @@
         sqlite3_close(encargadoDB);
     }
 }
+
+
 @end
