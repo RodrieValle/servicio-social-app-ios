@@ -52,8 +52,8 @@
 		D1965319192BDF0600AC3DC9 /* InstitucionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstitucionController.m; sourceTree = "<group>"; };
 		D197C768192BEEDE00B724B5 /* Alumno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alumno.h; path = ../Alumno.h; sourceTree = "<group>"; };
 		D197C769192BEEDE00B724B5 /* Alumno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alumno.m; path = ../Alumno.m; sourceTree = "<group>"; };
-		D1DAD4741926EDD50059901C /* Encargado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Encargado.h; path = ../Encargado.h; sourceTree = "<group>"; };
-		D1DAD4751926EDD50059901C /* Encargado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Encargado.m; path = ../Encargado.m; sourceTree = "<group>"; };
+		D1DAD4741926EDD50059901C /* Encargado.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Encargado.h; path = ../../Encargado.h; sourceTree = "<group>"; };
+		D1DAD4751926EDD50059901C /* Encargado.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Encargado.m; path = ../../Encargado.m; sourceTree = "<group>"; };
 		D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D1F1EB39192B1BE1008DEBE7 /* encargadoServicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encargadoServicioViewController.h; sourceTree = "<group>"; };
 		D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = encargadoServicioViewController.m; sourceTree = "<group>"; };
@@ -110,8 +110,6 @@
 				294D26A8192C5BEA00BEFFF6 /* Proyecto.m */,
 				294D26A4192C56E600BEFFF6 /* ProyectoViewController.h */,
 				294D26A5192C56E600BEFFF6 /* ProyectoViewController.m */,
-				D1DAD4741926EDD50059901C /* Encargado.h */,
-				D1DAD4751926EDD50059901C /* Encargado.m */,
 				D1F50B011927318000C9D7B0 /* ServicioSocialApp */,
 				D1F50B201927318000C9D7B0 /* ServicioSocialAppTests */,
 				D1F50AFA1927318000C9D7B0 /* Frameworks */,
@@ -143,6 +141,8 @@
 		D1F50B011927318000C9D7B0 /* ServicioSocialApp */ = {
 			isa = PBXGroup;
 			children = (
+				D1DAD4741926EDD50059901C /* Encargado.h */,
+				D1DAD4751926EDD50059901C /* Encargado.m */,
 				D1DAD4741926EDD50059901C /* Encargado.h */,
 				D1DAD4751926EDD50059901C /* Encargado.m */,
 				D197C768192BEEDE00B724B5 /* Alumno.h */,
