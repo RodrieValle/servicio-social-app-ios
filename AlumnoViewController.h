@@ -10,7 +10,7 @@
 #import "sqlite3.h"
 #import "Alumno.h"
 
-@interface AlumnoViewController : UIViewController
+@interface AlumnoViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtCarnet;
 @property (weak, nonatomic) IBOutlet UITextField *txtNombre;
 @property (weak, nonatomic) IBOutlet UITextField *txtTelefono;
@@ -22,5 +22,6 @@
 - (IBAction)consultarAlumno:(id)sender;
 - (IBAction)actualizarAlumno:(id)sender;
 - (IBAction)eliminarAlumno:(id)sender;
+-(BOOL)textFieldShouldReturn: (UITextField *) textField;
 
 @end

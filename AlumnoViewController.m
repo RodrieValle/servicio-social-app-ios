@@ -85,9 +85,15 @@
 {
     [super viewDidLoad];
     arraydeAlumnos =[[NSMutableArray alloc]init];
-    //[[self tblLista] setDelegate:self];
-    //[[self tblLista]setDataSource:self];
+    [[self tblLista] setDelegate:self];
+    [[self tblLista]setDataSource:self];
     [self crearOabrirDB];
+    [_txtCarnet setDelegate:self];
+    [_txtNombre setDelegate:self];
+    [_txtTelefono setDelegate:self];
+    [_txtDui setDelegate:self];
+    [_txtNit setDelegate:self];
+    [_txtEmail setDelegate:self];
 	// Do any additional setup after loading the view.
 }
 
@@ -220,5 +226,17 @@
 
 - (IBAction)eliminarAlumno:(id)sender {
     [[self tblLista]setEditing:!self.tblLista.editing animated:YES];
+}
+
+-(BOOL)textFieldShouldReturn: (UITextField *) textField {
+    
+    [_txtCarnet resignFirstResponder];
+     [_txtNombre resignFirstResponder];
+     [_txtTelefono resignFirstResponder];
+     [_txtDui resignFirstResponder];
+     [_txtNit resignFirstResponder];
+     [_txtEmail resignFirstResponder];
+    return YES;
+    
 }
 @end
