@@ -199,9 +199,52 @@
 
 - (IBAction)btnActualizarEncargado:(id)sender {
     
+    
+    
+    
+    static sqlite3_stmt *statement=nil;
+    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+        char *update_Stmt="UPDATE ENCARGADO SET NOMBRE=?, EMAIL=?, TELEFONO=?, FACULTAD=?, ESCUELA=? WHERE IDENCARGADO=? ";
+        if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK){
+            sqlite3_bind_text(statement,1,[self.edtNombreEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement,2,[self.edtEmailEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_text(statement,3,[self.edtTelefonoEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_int(statement, 4, [self.edtFacultadEncargado.text intValue]);
+            sqlite3_bind_int(statement, 5, [self.edtEscuelaEncargado.text intValue]);
+            
+            sqlite3_step(statement);
+            sqlite3_finalize(statement);
+            
+            Encargado *encargado =[[Encargado alloc]init];
+           
+            [encargado setNombre:self.edtNombreEncargado.text];
+            [encargado setEmail:self.edtEmailEncargado.text];
+            [encargado setTelefono:self.edtTelefonoEncargado.text];
+            [encargado setFacultad:self.edtFacultadEncargado.text];
+            
+           // [encargado setIdEncargado:<#(int)#>:[self.numalumnoField.text intValue]];
+             [encargado setEscuela:self.edtEscuelaEncargado.text];
+            [arrayEncargado addObject:encargado];
+            NSLog(@"Encargado modificado");
+        }
+        else
+        {
+            NSLog(@"Encargado no modificado");
+            
+        }
+        sqlite3_close(encargadoDB);
+    }
+
+    
+    
 }
 
 - (IBAction)btnEliminarEncargado:(id)sender {
+    [[self encargadoTableView]setEditing:!self.encargadoTableView.editing animated:YES];
     
 }
+
+
+
+
 @end
