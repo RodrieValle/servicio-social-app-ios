@@ -2,7 +2,7 @@
 //  Proyecto.h
 //  ServicioSocialApp
 //
-//  Created by jb on 5/20/14.
+//  Created by jb on 5/21/14.
 //  Copyright (c) 2014 Rodrigo Herrera. All rights reserved.
 //
 
@@ -10,9 +10,8 @@
 
 @interface Proyecto : NSObject
 @property (assign) int idProyecto;
-@property (assign) int idSolicitante;
+@property (nonatomic,strong)NSString *nombreProyecto;
 @property (assign) int idTipoProyecto;
 @property (assign) int idEncargado;
-@property (nonatomic,strong)NSString *nombre;
-
+@property (assign) int idSolicitante;
 @end
