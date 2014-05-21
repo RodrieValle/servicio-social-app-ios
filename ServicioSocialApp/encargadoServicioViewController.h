@@ -12,7 +12,7 @@
 #import "sqlite3.h"
 
 @interface encargadoServicioViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *edtIdEncargado;
+
 @property (weak, nonatomic) IBOutlet UITextField *edtNombreEncargado;
 @property (weak, nonatomic) IBOutlet UITextField *edtEmailEncargado;
 @property (weak, nonatomic) IBOutlet UITextField *edtTelefonoEncargado;
