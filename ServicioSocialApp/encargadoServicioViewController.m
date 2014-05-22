@@ -191,7 +191,7 @@
                 
                 
                 NSString *escuela1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 5)];
-                
+                 
                 Encargado *encargado=[[Encargado alloc]init];
                 
                 [encargado setIdEncargado:[idencargado1 intValue]];
