@@ -148,7 +148,7 @@
         const char *insert_stmt=[insert_Stmt UTF8String];
         
         if (sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error)==SQLITE_OK) {
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Alumno insertado correctamente" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Encargado insertado correctamente" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
             
             Encargado *encargado =[[Encargado alloc]init];
@@ -160,7 +160,7 @@
             [arrayEncargado addObject:encargado];
         }
         else{
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"No se pudo insertar alumno" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"No se pudo insertar nuevo encargado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
         }
         sqlite3_close(encargadoDB);
@@ -245,12 +245,12 @@
             [encargado setIdEncargado:[self.edtIdEncargado.text intValue]];
              [encargado setEscuela:self.edtEscuelaEncargado.text];
             [arrayEncargado addObject:encargado];
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Alumno modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Encargado modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
         }
         else
         {
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Alumno no modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Encargado no modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
             
         }
@@ -264,6 +264,38 @@
 - (IBAction)btnEliminarEncargado:(id)sender {
     [[self encargadoTableView]setEditing:!self.encargadoTableView.editing animated:YES];
     
+}
+
+-(void)deleteData:(NSString *)deleteQuery{
+    char *error;
+    
+  
+    
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
+        
+        if (sqlite3_exec(encargadoDB, [deleteQuery UTF8String],NULL, NULL, &error)==SQLITE_OK) {
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Encargado eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
+        }
+        else
+        {
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Encargado no eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
+        }
+        sqlite3_close(encargadoDB);
+        
+    }
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle==UITableViewCellEditingStyleDelete){
+        Encargado *encargado =[arrayEncargado objectAtIndex:indexPath.row];
+        
+        [self deleteData:[NSString stringWithFormat:@"DELETE FROM ENCARGADOSERVICIOSOCIAL WHERE NOMBRE IS '%s' AND FACULTAD IS '%s' AND ESCUELA IS '%s'", [encargado.nombre UTF8String], [encargado.facultad UTF8String ], [encargado.escuela UTF8String]]];
+        [arrayEncargado removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
 }
 
 -(BOOL)textFieldShouldReturn: (UITextField *) textField {
