@@ -223,7 +223,7 @@
             [alumno setEmail:self.txtEmail.text];
             
             [arraydeAlumnos addObject:alumno];
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Alumno modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Alumno modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
         }
         else
@@ -239,6 +239,34 @@
 
 - (IBAction)eliminarAlumno:(id)sender {
     [[self tblLista]setEditing:!self.tblLista.editing animated:YES];
+}
+
+-(void)deleteData:(NSString *)deleteQuery{
+    char *error;
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
+        
+        if (sqlite3_exec(encargadoDB, [deleteQuery UTF8String],NULL, NULL, &error)==SQLITE_OK) {
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Alumno eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
+        }
+        else
+        {
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Alumno no eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
+        }
+        sqlite3_close(encargadoDB);
+        
+    }
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle==UITableViewCellEditingStyleDelete){
+        Alumno *alum =[arraydeAlumnos objectAtIndex:indexPath.row];
+        [self deleteData:[NSString stringWithFormat:@"DELETE FROM ALUMNO WHERE CARNET IS '%s'",[alum.carnet UTF8String]]];
+        [arraydeAlumnos removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
 }
 
 -(BOOL)textFieldShouldReturn: (UITextField *) textField {
