@@ -245,7 +245,7 @@
             [encargado setIdEncargado:[self.edtIdEncargado.text intValue]];
              [encargado setEscuela:self.edtEscuelaEncargado.text];
             [arrayEncargado addObject:encargado];
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Encargado modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Exito" message:@"Encargado modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
         }
         else

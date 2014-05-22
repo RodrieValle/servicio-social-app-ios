@@ -15,6 +15,7 @@
 		D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1965319192BDF0600AC3DC9 /* InstitucionController.m */; };
 		D197C76A192BEEDE00B724B5 /* Alumno.m in Sources */ = {isa = PBXBuildFile; fileRef = D197C769192BEEDE00B724B5 /* Alumno.m */; };
 		D1DAD4781926EE9D0059901C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */; };
+		D1DB8883192E6406002182ED /* Institucion.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DB8882192E6406002182ED /* Institucion.m */; };
 		D1DC02A6192DB3A200C73104 /* servicioSocial.s3db in Resources */ = {isa = PBXBuildFile; fileRef = D1DC02A5192D9EF000C73104 /* servicioSocial.s3db */; };
 		D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */; };
 		D1F50AFC1927318000C9D7B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F50AFB1927318000C9D7B0 /* Foundation.framework */; };
@@ -59,6 +60,8 @@
 		D197C768192BEEDE00B724B5 /* Alumno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alumno.h; path = ../Alumno.h; sourceTree = "<group>"; };
 		D197C769192BEEDE00B724B5 /* Alumno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alumno.m; path = ../Alumno.m; sourceTree = "<group>"; };
 		D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D1DB8881192E6406002182ED /* Institucion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Institucion.h; sourceTree = "<group>"; };
+		D1DB8882192E6406002182ED /* Institucion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Institucion.m; sourceTree = "<group>"; };
 		D1DC02A5192D9EF000C73104 /* servicioSocial.s3db */ = {isa = PBXFileReference; lastKnownFileType = file; path = servicioSocial.s3db; sourceTree = "<group>"; };
 		D1F1EB39192B1BE1008DEBE7 /* encargadoServicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encargadoServicioViewController.h; sourceTree = "<group>"; };
 		D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = encargadoServicioViewController.m; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 		D1F50AEF1927318000C9D7B0 = {
 			isa = PBXGroup;
 			children = (
+				D1DB8881192E6406002182ED /* Institucion.h */,
+				D1DB8882192E6406002182ED /* Institucion.m */,
 				29C1397F192D4F7F0030401C /* Proyecto.h */,
 				29C13980192D4F7F0030401C /* Proyecto.m */,
 				D12CB8E1192D15D600DF7253 /* Encargado.h */,
@@ -302,6 +307,7 @@
 				D1F50B121927318000C9D7B0 /* ViewController.m in Sources */,
 				D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */,
 				29DE5308192C768D000EE0C7 /* TipoProyecto.m in Sources */,
+				D1DB8883192E6406002182ED /* Institucion.m in Sources */,
 				D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */,
 				29C13984192D4F960030401C /* ProyectoViewController.m in Sources */,
 				D12CB8E3192D15D600DF7253 /* Encargado.m in Sources */,
