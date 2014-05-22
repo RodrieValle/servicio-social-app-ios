@@ -261,7 +261,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Encargado de Servicio Social" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYn-wl-5Ow">
-                                <rect key="frame" x="20" y="33" width="272" height="21"/>
+                                <rect key="frame" x="20" y="8" width="272" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.08662707683097981" green="0.11966051164091276" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
@@ -272,6 +272,19 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="solo para actualizar" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UZR-mM-oZC">
+                                <rect key="frame" x="139" y="47" width="167" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID Encargado" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DnX-R4-Osx">
+                                <rect key="frame" x="12" y="56" width="106" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -279,6 +292,7 @@
                         <outlet property="edtEmailEncargado" destination="8Fh-Dv-zzS" id="ePR-kV-mpA"/>
                         <outlet property="edtEscuelaEncargado" destination="SXR-AJ-jtU" id="Rqb-NV-LPI"/>
                         <outlet property="edtFacultadEncargado" destination="bi9-zH-rj9" id="fgf-LX-GC6"/>
+                        <outlet property="edtIdEncargado" destination="UZR-mM-oZC" id="XJD-6g-e2S"/>
                         <outlet property="edtNombreEncargado" destination="NHs-SU-7le" id="Hda-Uc-neQ"/>
                         <outlet property="edtTelefonoEncargado" destination="37b-XS-oHf" id="g49-bs-xYs"/>
                         <outlet property="encargadoTableView" destination="Lc8-cY-ScB" id="Bud-gF-Qy4"/>

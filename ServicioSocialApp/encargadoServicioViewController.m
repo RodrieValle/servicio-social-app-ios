@@ -13,6 +13,7 @@
     NSMutableArray *arrayEncargado;
     sqlite3 *encargadoDB;
     NSString *dbPathString;
+    AppDelegate *appDelegate;
 }
 
 @end
@@ -34,8 +35,15 @@
     arrayEncargado=[[NSMutableArray alloc]init];
     [[self encargadoTableView]setDelegate:self];
     [[self encargadoTableView]setDataSource:self];
-    [self crearOabrirDB];
-    
+    //[self crearOabrirDB];
+    [_edtNombreEncargado setDelegate:self];
+    [_edtIdEncargado setDelegate:self];
+    [_edtEmailEncargado setDelegate:self];
+    [_edtTelefonoEncargado setDelegate:self];
+    [_edtFacultadEncargado setDelegate:self];
+    [_edtEscuelaEncargado setDelegate:self];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+
 	// Do any additional setup after loading the view.
 }
 
@@ -45,7 +53,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+/*
 -(void) crearOabrirDB{
     NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
     NSString *docPath=[path objectAtIndex:0];
@@ -77,10 +85,10 @@
 
             sql_stmt="create table CARGO ( IDCARGO INTEGER not null primary key autoincrement,NOMBRE VARCHAR(100),DESCRIPCION VARCHAR(250) );";
             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
-
-            /*sql_stmt="create table ENCARGADOSERVICIOSOCIAL ( IDENCARGADO INTEGER not null primary key autoincrement, NOMBRE VARCHAR(100) not null, EMAIL VARCHAR(50),TELEFONO VARCHAR(8) not null, FACULTAD VARCHAR(100),ESCUELA CHAR(100));";
-            sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);*/
-
+///////
+            sql_stmt="create table ENCARGADOSERVICIOSOCIAL ( IDENCARGADO INTEGER not null primary key autoincrement, NOMBRE VARCHAR(100) not null, EMAIL VARCHAR(50),TELEFONO VARCHAR(8) not null, FACULTAD VARCHAR(100),ESCUELA CHAR(100));";
+            sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
+////
             sql_stmt="create table INSTITUCION ( IDINSTITUCION INTEGER not null primary key autoincrement, NOMBRE VARCHAR(100) not null, NIT VARCHAR(17) not null);";
             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
 
@@ -106,7 +114,7 @@
     }
     
 }
-
+*/
 
 
 -(NSInteger) numberOfSectionsInTableView:(UITableView*)tableView{
@@ -125,7 +133,7 @@
         
     }
     Encargado *aEncargado=[arrayEncargado objectAtIndex:indexPath.row];
-    cell.textLabel.text=aEncargado.nombre;
+    cell.textLabel.text=[NSString stringWithFormat:@"%d %@", aEncargado.idEncargado, aEncargado.nombre];
     cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@", aEncargado.facultad, aEncargado.escuela];
     return cell;
     
@@ -135,35 +143,36 @@
 
 - (IBAction)btnInsertarEncargado:(id)sender {
     char *error;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
-        NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO ENCARGADO(NOMBRE, EMAIL, TELEFONO, FACULTAD, ESCUELA) values ('%s', '%s', '%s', '%s', '%s')", [self.edtNombreEncargado.text UTF8String], [self.edtEmailEncargado.text UTF8String],[self.edtTelefonoEncargado.text UTF8String], [self.edtFacultadEncargado.text UTF8String], [self.edtEscuelaEncargado.text UTF8String]];
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
+        NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO ENCARGADOSERVICIOSOCIAL (nombre, email, telefono, facultad, escuela) values ('%s','%s','%s','%s','%s')",[self.edtNombreEncargado.text UTF8String],[self.edtEmailEncargado.text UTF8String],[self.edtTelefonoEncargado.text UTF8String],[self.edtFacultadEncargado.text UTF8String],[self.edtEscuelaEncargado.text UTF8String]];
         const char *insert_stmt=[insert_Stmt UTF8String];
-    
+        
         if (sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error)==SQLITE_OK) {
-            Encargado *encargado=[[Encargado alloc]init];
-            [encargado setNombre:self.edtNombreEncargado.text ];
-            [encargado setEmail:self.edtEmailEncargado.text ];
-            [encargado setTelefono:self.edtTelefonoEncargado.text ];
-            [encargado setFacultad:self.edtFacultadEncargado.text ];
-            [encargado setEscuela:self.edtEscuelaEncargado.text ];
-            [arrayEncargado addObject:encargado];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Alumno insertado correctamente" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
             
-        }else{
-        NSLog(@"Encargado no Insertado");
+            Encargado *encargado =[[Encargado alloc]init];
+            [encargado setNombre:self.edtNombreEncargado.text];
+            [encargado setEmail:self.edtEmailEncargado.text];
+            [encargado setTelefono:self.edtTelefonoEncargado.text];
+            [encargado setFacultad:self.edtFacultadEncargado.text];
+            [encargado setEscuela:self.edtEscuelaEncargado.text];
+            [arrayEncargado addObject:encargado];
+        }
+        else{
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"No se pudo insertar alumno" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
         }
         sqlite3_close(encargadoDB);
-    
-    
     }
-    
 }
 
 - (IBAction)btnConsultarEncargado:(id)sender {
     
     sqlite3_stmt *statement;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         [arrayEncargado removeAllObjects];
-        NSString *querySql=[NSString stringWithFormat:@"SELECT * FROM ENCARGADO"];
+        NSString *querySql=[NSString stringWithFormat:@"SELECT * FROM ENCARGADOSERVICIOSOCIAL"];
         const char *querysql=[querySql UTF8String];
         
         if (sqlite3_prepare(encargadoDB, querysql, -1, &statement, NULL)==SQLITE_OK) {
@@ -182,7 +191,7 @@
                 
                 
                 NSString *escuela1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 5)];
-                
+                 
                 Encargado *encargado=[[Encargado alloc]init];
                 
                 [encargado setIdEncargado:[idencargado1 intValue]];
@@ -195,7 +204,8 @@
             }
         }
         else {
-            NSLog(@"Lista Vacia");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Lista vacìa" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
         }
         sqlite3_close(encargadoDB);
     }
@@ -210,14 +220,16 @@
     
     
     static sqlite3_stmt *statement=nil;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
-        char *update_Stmt="UPDATE ENCARGADO SET NOMBRE=?, EMAIL=?, TELEFONO=?, FACULTAD=?, ESCUELA=? WHERE IDENCARGADO=? ";
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
+        char *update_Stmt="UPDATE ENCARGADOSERVICIOSOCIAL SET NOMBRE=?, EMAIL=?, TELEFONO=?, FACULTAD=?, ESCUELA=? WHERE IDENCARGADO=? ";
         if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK){
             sqlite3_bind_text(statement,1,[self.edtNombreEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement,2,[self.edtEmailEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement,3,[self.edtTelefonoEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement, 4, [self.edtFacultadEncargado.text intValue]);
-            sqlite3_bind_int(statement, 5, [self.edtEscuelaEncargado.text intValue]);
+             sqlite3_bind_text(statement,4,[self.edtFacultadEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
+             sqlite3_bind_text(statement,5,[self.edtEscuelaEncargado.text UTF8String], -1, SQLITE_TRANSIENT);
+    
+             sqlite3_bind_int(statement, 6, [self.edtIdEncargado.text intValue]);
             
             sqlite3_step(statement);
             sqlite3_finalize(statement);
@@ -229,14 +241,17 @@
             [encargado setTelefono:self.edtTelefonoEncargado.text];
             [encargado setFacultad:self.edtFacultadEncargado.text];
             
-           // [encargado setIdEncargado:<#(int)#>:[self.numalumnoField.text intValue]];
+            
+            [encargado setIdEncargado:[self.edtIdEncargado.text intValue]];
              [encargado setEscuela:self.edtEscuelaEncargado.text];
             [arrayEncargado addObject:encargado];
-            NSLog(@"Encargado modificado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Alumno modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
         }
         else
         {
-            NSLog(@"Encargado no modificado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Alumno no modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
             
         }
         sqlite3_close(encargadoDB);
@@ -251,6 +266,17 @@
     
 }
 
+-(BOOL)textFieldShouldReturn: (UITextField *) textField {
+    
+    [_edtIdEncargado resignFirstResponder];
+    [_edtNombreEncargado resignFirstResponder];
+    [_edtEscuelaEncargado resignFirstResponder];
+    [_edtEmailEncargado resignFirstResponder];
+    [_edtTelefonoEncargado resignFirstResponder];
+    [_edtFacultadEncargado resignFirstResponder];
+    return YES;
+    
+}
 
 
 

@@ -11,8 +11,9 @@
 
 #import "sqlite3.h"
 
+#import "AppDelegate.h"
 
-@interface encargadoServicioViewController : UIViewController
+@interface encargadoServicioViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *edtIdEncargado;
 @property (weak, nonatomic) IBOutlet UITextField *edtNombreEncargado;
 @property (weak, nonatomic) IBOutlet UITextField *edtEmailEncargado;
@@ -24,5 +25,5 @@
 - (IBAction)btnConsultarEncargado:(id)sender;
 - (IBAction)btnActualizarEncargado:(id)sender;
 - (IBAction)btnEliminarEncargado:(id)sender;
-
+-(BOOL)textFieldShouldReturn: (UITextField *) textField;
 @end
