@@ -15,6 +15,7 @@
 		D196531A192BDF0600AC3DC9 /* InstitucionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1965319192BDF0600AC3DC9 /* InstitucionController.m */; };
 		D197C76A192BEEDE00B724B5 /* Alumno.m in Sources */ = {isa = PBXBuildFile; fileRef = D197C769192BEEDE00B724B5 /* Alumno.m */; };
 		D1DAD4781926EE9D0059901C /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */; };
+		D1DC02A6192DB3A200C73104 /* servicioSocial.s3db in Resources */ = {isa = PBXBuildFile; fileRef = D1DC02A5192D9EF000C73104 /* servicioSocial.s3db */; };
 		D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */; };
 		D1F50AFC1927318000C9D7B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F50AFB1927318000C9D7B0 /* Foundation.framework */; };
 		D1F50AFE1927318000C9D7B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F50AFD1927318000C9D7B0 /* CoreGraphics.framework */; };
@@ -58,6 +59,7 @@
 		D197C768192BEEDE00B724B5 /* Alumno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alumno.h; path = ../Alumno.h; sourceTree = "<group>"; };
 		D197C769192BEEDE00B724B5 /* Alumno.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alumno.m; path = ../Alumno.m; sourceTree = "<group>"; };
 		D1DAD4771926EE9D0059901C /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D1DC02A5192D9EF000C73104 /* servicioSocial.s3db */ = {isa = PBXFileReference; lastKnownFileType = file; path = servicioSocial.s3db; sourceTree = "<group>"; };
 		D1F1EB39192B1BE1008DEBE7 /* encargadoServicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encargadoServicioViewController.h; sourceTree = "<group>"; };
 		D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = encargadoServicioViewController.m; sourceTree = "<group>"; };
 		D1F50AF81927318000C9D7B0 /* ServicioSocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServicioSocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +172,7 @@
 		D1F50B021927318000C9D7B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D1DC02A5192D9EF000C73104 /* servicioSocial.s3db */,
 				D1F50B031927318000C9D7B0 /* ServicioSocialApp-Info.plist */,
 				D1F50B041927318000C9D7B0 /* InfoPlist.strings */,
 				D1F50B071927318000C9D7B0 /* main.m */,
@@ -272,6 +275,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1DC02A6192DB3A200C73104 /* servicioSocial.s3db in Resources */,
 				D1F50B141927318000C9D7B0 /* Images.xcassets in Resources */,
 				D1F50B061927318000C9D7B0 /* InfoPlist.strings in Resources */,
 				D1F50B0F1927318000C9D7B0 /* Main.storyboard in Resources */,
@@ -431,6 +435,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ServicioSocialApp/ServicioSocialApp-Prefix.pch";
 				INFOPLIST_FILE = "ServicioSocialApp/ServicioSocialApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -444,6 +449,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ServicioSocialApp/ServicioSocialApp-Prefix.pch";
 				INFOPLIST_FILE = "ServicioSocialApp/ServicioSocialApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

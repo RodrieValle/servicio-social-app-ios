@@ -8,12 +8,40 @@
 
 #import "AppDelegate.h"
 
-@implementation AppDelegate
+@implementation AppDelegate{
+    NSString *dataBaseName;
+    NSString *dataBasePath;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    self.dataBasePath = [documentsDirectory stringByAppendingPathComponent:@"servicioSocial.s3db"];
+    [self cargarBaseDeDatos];
     return YES;
+}
+
+-(void) cargarBaseDeDatos{
+    BOOL exito;
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"servicioSocial.s3db"];
+    
+    exito = [filemanager fileExistsAtPath:writableDBPath];
+    if(exito) return;
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"servicioSocial.s3db"];
+    
+    exito  = [filemanager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+    
+    if(!exito){
+        NSLog(@"%@", [error localizedDescription]);
+    }
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

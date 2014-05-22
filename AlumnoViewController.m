@@ -13,11 +13,13 @@
     NSMutableArray *arraydeAlumnos;
     sqlite3 *encargadoDB;
     NSString *dbPathString;
+    AppDelegate *appDelegate;
 }
 @end
 
 @implementation AlumnoViewController
 
+/*
 -(void) crearOabrirDB{
     NSLog(@"Dentro del metodo crear");
     NSArray *path=NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
@@ -49,8 +51,8 @@
             sql_stmt="create table CARGO ( IDCARGO INTEGER not null primary key autoincrement,NOMBRE VARCHAR(100),DESCRIPCION VARCHAR(250) );";
             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
             
-            /*sql_stmt="create table ENCARGADOSERVICIOSOCIAL ( IDENCARGADO INTEGER not null primary key autoincrement, NOMBRE VARCHAR(100) not null, EMAIL VARCHAR(50),TELEFONO VARCHAR(8) not null, FACULTAD VARCHAR(100),ESCUELA CHAR(100));";
-             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);*/
+            /ql_stmt="create table ENCARGADOSERVICIOSOCIAL ( IDENCARGADO INTEGER not null primary key autoincrement, NOMBRE VARCHAR(100) not null, EMAIL VARCHAR(50),TELEFONO VARCHAR(8) not null, FACULTAD VARCHAR(100),ESCUELA CHAR(100));";
+             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
             
             sql_stmt="create table INSTITUCION ( IDINSTITUCION INTEGER not null primary key autoincrement, NOMBRE VARCHAR(100) not null, NIT VARCHAR(17) not null);";
             sqlite3_exec(encargadoDB, sql_stmt, NULL, NULL, &error);
@@ -77,7 +79,7 @@
         
     }
     
-}
+}*/
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -94,14 +96,15 @@
     arraydeAlumnos =[[NSMutableArray alloc]init];
     [[self tblLista] setDelegate:self];
     [[self tblLista]setDataSource:self];
-    NSLog(@"En viewdidload antes de la base");
-    [self crearOabrirDB];
+    //NSLog(@"En viewdidload antes de la base");
+    //[self crearOabrirDB];
     [_txtCarnet setDelegate:self];
     [_txtNombre setDelegate:self];
     [_txtTelefono setDelegate:self];
     [_txtDui setDelegate:self];
     [_txtNit setDelegate:self];
     [_txtEmail setDelegate:self];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
 	// Do any additional setup after loading the view.
 }
 
@@ -133,13 +136,15 @@
 }
 
 - (IBAction)insertarAlumno:(id)sender {
+    
     char *error;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO ALUMNO (carnet, nombre, telefono, dui, nit, email) values ('%s','%s','%s','%s','%s', '%s')",[self.txtCarnet.text UTF8String],[self.txtNombre.text UTF8String],[self.txtTelefono.text UTF8String],[self.txtDui.text UTF8String],[self.txtNit.text UTF8String],[self.txtEmail.text UTF8String]];
         const char *insert_stmt=[insert_Stmt UTF8String];
         
         if (sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error)==SQLITE_OK) {
-            NSLog(@"Alumno Insertado correctamente");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Alumno insertado correctamente" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
             
             Alumno *alumno =[[Alumno alloc]init];
             [alumno setCarnet:self.txtCarnet.text];
@@ -160,7 +165,7 @@
 
 - (IBAction)consultarAlumno:(id)sender {
     sqlite3_stmt *statement;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         [arraydeAlumnos removeAllObjects];
         NSString *querySql =[NSString stringWithFormat:@"SELECT * FROM ALUMNO"];
         const char *querysql=[querySql UTF8String];
@@ -198,7 +203,7 @@
 
 - (IBAction)actualizarAlumno:(id)sender {
     static sqlite3_stmt *statement=nil;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         char *update_Stmt="UPDATE ALUMNO SET nombre=?, telefono=?, dui=?, nit=?, email=? WHERE carnet=? ";
         if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK){
             sqlite3_bind_text(statement,1,[self.txtNombre.text UTF8String], -1, SQLITE_TRANSIENT);
@@ -248,8 +253,4 @@
     
 }
 
-/*Explicare un poco lo de las versiones:
- El commit es para confirmar cambios dentro de sus repositorios personales, o sea en sus computadoras.
- El push es para subir al repositorio lo que han confirmado con el commit
- El pull es para bajar los cambios desde la nube a las computadoras personales*/
 @end

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "sqlite3.h"
 #import "Alumno.h"
+#import "AppDelegate.h"
 
 @interface AlumnoViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtCarnet;
