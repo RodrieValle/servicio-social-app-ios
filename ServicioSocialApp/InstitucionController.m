@@ -150,7 +150,7 @@
     
     static sqlite3_stmt *statement=nil;
     if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
-        char *update_Stmt="UPDATE INSTITUCION SET NOMBRE=?, NIT=?, WHERE IDINSTITUCION=? ";
+        char *update_Stmt="UPDATE INSTITUCION SET NOMBRE=?, NIT=? WHERE IDINSTITUCION=? ";
        
         if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK){
              //NSLog(@"ENTRO AL SEGUNDO IF");
