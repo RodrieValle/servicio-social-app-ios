@@ -54,6 +54,100 @@
             </objects>
             <point key="canvasLocation" x="-891" y="-620"/>
         </scene>
+        <!--Tipo Trabajo View Controller-->
+        <scene sceneID="gYQ-sZ-XyR">
+            <objects>
+                <viewController id="sI5-Y0-N0O" customClass="TipoTrabajoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FXo-kE-91w"/>
+                        <viewControllerLayoutGuide type="bottom" id="QBP-ax-OB1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9lt-lT-RhV">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipo de Trabajo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3UT-ww-Ib2">
+                                <rect key="frame" x="98" y="29" width="124" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombre" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nek-Iv-fJz">
+                                <rect key="frame" x="53" y="82" width="215" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Valor" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CNA-x3-y8h">
+                                <rect key="frame" x="53" y="130" width="215" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWi-iW-7Cw">
+                                <rect key="frame" x="20" y="168" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Insertar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="insertar:" destination="YII-S8-Scw" eventType="touchUpInside" id="4h2-j1-cEj"/>
+                                    <action selector="insertarTipoTrabajo:" destination="sI5-Y0-N0O" eventType="touchUpInside" id="14T-oG-TN0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpu-Cq-mOd">
+                                <rect key="frame" x="87" y="168" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Consultar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="consultar:" destination="YII-S8-Scw" eventType="touchUpInside" id="vK1-1k-fKn"/>
+                                    <action selector="consultarTipoTrabajo:" destination="sI5-Y0-N0O" eventType="touchUpInside" id="nlO-QM-8bl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2uZ-b2-bpy">
+                                <rect key="frame" x="169" y="168" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Actualizar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actualizar:" destination="YII-S8-Scw" eventType="touchUpInside" id="OFM-N2-a9K"/>
+                                    <action selector="actualizarTipoTrabajo:" destination="sI5-Y0-N0O" eventType="touchUpInside" id="chn-vC-Lxj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6S-IG-y9N">
+                                <rect key="frame" x="245" y="168" width="55" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Eliminar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="eliminar:" destination="YII-S8-Scw" eventType="touchUpInside" id="0Mp-vr-Wzp"/>
+                                    <action selector="eliminarTipoTrabajo:" destination="sI5-Y0-N0O" eventType="touchUpInside" id="PKk-M0-eDB"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="xEI-Df-k8g">
+                                <rect key="frame" x="10" y="206" width="301" height="356"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="eliminarTipoTrabajo" destination="A6S-IG-y9N" id="rB0-od-tky"/>
+                        <outlet property="listaTipoTrabajo" destination="xEI-Df-k8g" id="weG-7c-2qD"/>
+                        <outlet property="txtNombre" destination="nek-Iv-fJz" id="KzK-DD-wsO"/>
+                        <outlet property="txtValor" destination="CNA-x3-y8h" id="upR-7E-6yX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5SP-ak-zYY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-116" y="-1074"/>
+        </scene>
         <!--Encargado Servicio View Controller-->
         <scene sceneID="Pzd-LO-kKr">
             <objects>
@@ -241,6 +335,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="YII-S8-Scw" kind="modal" id="Wve-vD-rQg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8T-s5-5yB">
+                                <rect key="frame" x="84" y="324" width="152" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tipo de Trabajo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="sI5-Y0-N0O" kind="modal" id="4iY-SU-KZT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -506,7 +610,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6Bz-vY-ij8">
-                                <rect key="frame" x="-18" y="348" width="338" height="220"/>
+                                <rect key="frame" x="12" y="339" width="296" height="220"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>

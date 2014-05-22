@@ -148,11 +148,11 @@
             
             Alumno *alumno =[[Alumno alloc]init];
             [alumno setCarnet:self.txtCarnet.text];
-            [alumno setCarnet:self.txtNombre.text];
-            [alumno setCarnet:self.txtTelefono.text];
-            [alumno setCarnet:self.txtDui.text];
-            [alumno setCarnet:self.txtNit.text];
-            [alumno setCarnet:self.txtEmail.text];
+            [alumno setNombre:self.txtNombre.text];
+            [alumno setTelefono:self.txtTelefono.text];
+            [alumno setDui:self.txtDui.text];
+            [alumno setNit:self.txtNit.text];
+            [alumno setEmail:self.txtEmail.text];
             [arraydeAlumnos addObject:alumno];
         }
         else{
