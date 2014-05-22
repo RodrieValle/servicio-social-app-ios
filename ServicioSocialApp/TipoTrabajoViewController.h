@@ -12,6 +12,7 @@
 #import "TipoTrabajo.h"
 
 @interface TipoTrabajoViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *txtIdTipoProyecto;
 @property (weak, nonatomic) IBOutlet UITextField *txtNombre;
 @property (weak, nonatomic) IBOutlet UITextField *txtValor;
 - (IBAction)insertarTipoTrabajo:(id)sender;

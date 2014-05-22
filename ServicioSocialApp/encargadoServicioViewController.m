@@ -270,9 +270,13 @@
     char *error;
     
   
+    sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB);
+    NSLog(@"Error1: ,%s",sqlite3_errmsg(encargadoDB));
     
     if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         
+        sqlite3_exec(encargadoDB, [deleteQuery UTF8String],NULL, NULL, &error);
+        NSLog(@"Error2: ,%s",sqlite3_errmsg(encargadoDB));
         if (sqlite3_exec(encargadoDB, [deleteQuery UTF8String],NULL, NULL, &error)==SQLITE_OK) {
             UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Encargado eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];

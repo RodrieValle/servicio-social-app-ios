@@ -96,17 +96,17 @@
     sqlite3_stmt *statement;
     if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         [arrayTipoTrabajo removeAllObjects];
-        NSString *querySql =[NSString stringWithFormat:@"SELECT * FROM tipoproyecto"];
+        NSString *querySql =[NSString stringWithFormat:@"SELECT * FROM tipotrabajo"];
         const char *querysql=[querySql UTF8String];
         
         if (sqlite3_prepare(encargadoDB, querysql,-1,&statement,NULL)==SQLITE_OK) {
             while (sqlite3_step(statement)==SQLITE_ROW) {
-                NSString *idtipoproyecto= [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+                NSString *idtipotrabajo= [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
                 NSString *nombre=    [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
                 NSString *valor=    [[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
                 
                 TipoTrabajo *tipoTrabajo=[[TipoTrabajo alloc]init];
-                [tipoTrabajo setIdTipoTrabajo: (int) idtipoproyecto];
+                [tipoTrabajo setIdTipoTrabajo: [idtipotrabajo intValue]];
                 [tipoTrabajo setNombre:nombre];
                 [tipoTrabajo setValor:valor];
                 [arrayTipoTrabajo addObject:tipoTrabajo];
@@ -128,23 +128,24 @@
 - (IBAction)actualizarTipoTrabajo:(id)sender {
     static sqlite3_stmt *statement=nil;
     if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
-        char *update_Stmt="UPDATE tipoproyecto SET nombre=?, valor=? WHERE idtipoproyecto=? ";
+        char *update_Stmt="UPDATE tipotrabajo SET nombre=?, valor=? WHERE idtipoproyecto=? ";
         if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK){
             sqlite3_bind_text(statement,1,[self.txtNombre.text UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement,2,[self.txtValor.text UTF8String], -1, SQLITE_TRANSIENT);
-            //sqlite3_bind_text(statement,3,[self.txtDui.text UTF8String], -1, SQLITE_TRANSIENT);
+            sqlite3_bind_int(statement,3,[self.txtIdTipoProyecto.text intValue]);
             sqlite3_step(statement);
             sqlite3_finalize(statement);
             TipoTrabajo *tipoTrabajo =[[TipoTrabajo alloc]init];
+            [tipoTrabajo setIdTipoTrabajo:[self.txtIdTipoProyecto.text intValue]];
             [tipoTrabajo setNombre:self.txtNombre.text];
             [tipoTrabajo setValor:self.txtValor.text];
             [arrayTipoTrabajo addObject:tipoTrabajo];
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Alumno modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Tipo de trabajo modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
         }
         else
         {
-            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Alumno no modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Tipo de trabajo no modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
             
         }
@@ -154,6 +155,35 @@
 }
 
 - (IBAction)eliminarTipoTrabajo:(id)sender {
+    [[self listaTipoTrabajo]setEditing:!self.listaTipoTrabajo.editing animated:YES];
+}
+
+-(void)deleteData:(NSString *)deleteQuery{
+    char *error;
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
+        
+        if (sqlite3_exec(encargadoDB, [deleteQuery UTF8String],NULL, NULL, &error)==SQLITE_OK) {
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Tipo de trabajo eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
+        }
+        else
+        {
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Tipo de trabajo no eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
+        }
+        sqlite3_close(encargadoDB);
+        
+    }
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle==UITableViewCellEditingStyleDelete){
+        TipoTrabajo *tipoTrabajo =[arrayTipoTrabajo objectAtIndex:indexPath.row];
+        [self deleteData:[NSString stringWithFormat:@"DELETE FROM tipotrabajo WHERE idtipotrabajo IS '%i'",tipoTrabajo.idTipoTrabajo]];
+        [arrayTipoTrabajo removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+    }
 }
 
 -(BOOL)textFieldShouldReturn: (UITextField *) textField {

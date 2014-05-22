@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface TipoTrabajo : NSObject
-@property (nonatomic) int idTipoTrabajo;;
+@property (assign) int idTipoTrabajo;;
 @property (nonatomic, strong)NSString *nombre;
 @property (nonatomic, strong)NSString *valor;
 @end
