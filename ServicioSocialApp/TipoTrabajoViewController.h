@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "sqlite3.h"
 #import "AppDelegate.h"
+#import "TipoTrabajo.h"
 
 @interface TipoTrabajoViewController : UIViewController <UITableViewDataSource,UITableViewDelegate, UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *txtNombre;
