@@ -314,6 +314,15 @@
     
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [[self edtIdEncargado]resignFirstResponder];
+    [[self edtNombreEncargado]resignFirstResponder];
+    [[self edtEscuelaEncargado]resignFirstResponder];
+    [[self edtEmailEncargado]resignFirstResponder];
+    [[self edtTelefonoEncargado]resignFirstResponder];
+    [[self edtFacultadEncargado]resignFirstResponder];
+}
 
 
 @end

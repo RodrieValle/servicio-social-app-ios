@@ -21,6 +21,17 @@
 		D1DC02AC192DDF2A00C73104 /* TipoTrabajo.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DC02AB192DDF2A00C73104 /* TipoTrabajo.m */; };
 		D1F0346B192EFC7700166510 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F0346A192EFC7700166510 /* LoginViewController.m */; };
 		D1F0346E192F016A00166510 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F0346D192F016A00166510 /* MenuViewController.m */; };
+		D1F03473192F0B1800166510 /* encargado.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1F0346F192F0B1800166510 /* encargado.jpg */; };
+		D1F03474192F0B1800166510 /* estudiante.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F03470192F0B1800166510 /* estudiante.png */; };
+		D1F03475192F0B1800166510 /* institucion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1F03471192F0B1800166510 /* institucion.jpg */; };
+		D1F03476192F0B1800166510 /* proyectos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1F03472192F0B1800166510 /* proyectos.jpg */; };
+		D1F0347A192F0EA600166510 /* trabajo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1F03479192F0EA600166510 /* trabajo.jpg */; };
+		D1F0347C192F101200166510 /* actualizar.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F0347B192F101200166510 /* actualizar.png */; };
+		D1F0347F192F101C00166510 /* consultar.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F0347D192F101C00166510 /* consultar.png */; };
+		D1F03480192F101C00166510 /* delete.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F0347E192F101C00166510 /* delete.png */; };
+		D1F03482192F102300166510 /* nuevo.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F03481192F102300166510 /* nuevo.png */; };
+		D1F03484192F1CC200166510 /* icono-servicio.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F03483192F1CC200166510 /* icono-servicio.png */; };
+		D1F03486192F1D0900166510 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F03485192F1D0900166510 /* back.png */; };
 		D1F1EB3B192B1BE1008DEBE7 /* encargadoServicioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */; };
 		D1F50AFC1927318000C9D7B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F50AFB1927318000C9D7B0 /* Foundation.framework */; };
 		D1F50AFE1927318000C9D7B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1F50AFD1927318000C9D7B0 /* CoreGraphics.framework */; };
@@ -75,6 +86,17 @@
 		D1F0346A192EFC7700166510 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		D1F0346C192F016A00166510 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		D1F0346D192F016A00166510 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		D1F0346F192F0B1800166510 /* encargado.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = encargado.jpg; sourceTree = "<group>"; };
+		D1F03470192F0B1800166510 /* estudiante.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estudiante.png; sourceTree = "<group>"; };
+		D1F03471192F0B1800166510 /* institucion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = institucion.jpg; sourceTree = "<group>"; };
+		D1F03472192F0B1800166510 /* proyectos.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = proyectos.jpg; sourceTree = "<group>"; };
+		D1F03479192F0EA600166510 /* trabajo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = trabajo.jpg; sourceTree = "<group>"; };
+		D1F0347B192F101200166510 /* actualizar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = actualizar.png; sourceTree = "<group>"; };
+		D1F0347D192F101C00166510 /* consultar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = consultar.png; sourceTree = "<group>"; };
+		D1F0347E192F101C00166510 /* delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = delete.png; sourceTree = "<group>"; };
+		D1F03481192F102300166510 /* nuevo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nuevo.png; sourceTree = "<group>"; };
+		D1F03483192F1CC200166510 /* icono-servicio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icono-servicio.png"; sourceTree = "<group>"; };
+		D1F03485192F1D0900166510 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		D1F1EB39192B1BE1008DEBE7 /* encargadoServicioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = encargadoServicioViewController.h; sourceTree = "<group>"; };
 		D1F1EB3A192B1BE1008DEBE7 /* encargadoServicioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = encargadoServicioViewController.m; sourceTree = "<group>"; };
 		D1F50AF81927318000C9D7B0 /* ServicioSocialApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServicioSocialApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +148,17 @@
 		D1F50AEF1927318000C9D7B0 = {
 			isa = PBXGroup;
 			children = (
+				D1F03485192F1D0900166510 /* back.png */,
+				D1F03483192F1CC200166510 /* icono-servicio.png */,
+				D1F03481192F102300166510 /* nuevo.png */,
+				D1F0347D192F101C00166510 /* consultar.png */,
+				D1F0347E192F101C00166510 /* delete.png */,
+				D1F0347B192F101200166510 /* actualizar.png */,
+				D1F03479192F0EA600166510 /* trabajo.jpg */,
+				D1F0346F192F0B1800166510 /* encargado.jpg */,
+				D1F03470192F0B1800166510 /* estudiante.png */,
+				D1F03471192F0B1800166510 /* institucion.jpg */,
+				D1F03472192F0B1800166510 /* proyectos.jpg */,
 				D1DB8881192E6406002182ED /* Institucion.h */,
 				D1DB8882192E6406002182ED /* Institucion.m */,
 				29C1397F192D4F7F0030401C /* Proyecto.h */,
@@ -301,8 +334,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1DC02A6192DB3A200C73104 /* servicioSocial.s3db in Resources */,
+				D1F03474192F0B1800166510 /* estudiante.png in Resources */,
 				D1F50B141927318000C9D7B0 /* Images.xcassets in Resources */,
+				D1F03482192F102300166510 /* nuevo.png in Resources */,
+				D1F0347C192F101200166510 /* actualizar.png in Resources */,
+				D1F0347A192F0EA600166510 /* trabajo.jpg in Resources */,
+				D1F03484192F1CC200166510 /* icono-servicio.png in Resources */,
+				D1F03473192F0B1800166510 /* encargado.jpg in Resources */,
+				D1F03480192F101C00166510 /* delete.png in Resources */,
+				D1F03476192F0B1800166510 /* proyectos.jpg in Resources */,
+				D1F0347F192F101C00166510 /* consultar.png in Resources */,
+				D1F03486192F1D0900166510 /* back.png in Resources */,
 				D1F50B061927318000C9D7B0 /* InfoPlist.strings in Resources */,
+				D1F03475192F0B1800166510 /* institucion.jpg in Resources */,
 				D1F50B0F1927318000C9D7B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

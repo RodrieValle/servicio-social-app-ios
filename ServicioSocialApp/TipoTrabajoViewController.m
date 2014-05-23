@@ -196,4 +196,11 @@
     return YES;
     
 }
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [[self txtNombre]resignFirstResponder];
+    [[self txtValor]resignFirstResponder];
+}
+
 @end

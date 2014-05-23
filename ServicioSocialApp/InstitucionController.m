@@ -234,6 +234,11 @@
     
 }
 
-
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [[self edtIdInstitucion]resignFirstResponder];
+    [[self edtNombreInstitucion]resignFirstResponder];
+    [[self edtNitInstitucion]resignFirstResponder];
+}
 
 @end

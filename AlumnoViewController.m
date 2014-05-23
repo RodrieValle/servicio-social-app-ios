@@ -219,4 +219,14 @@
     
 }
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    [super touchesBegan:touches withEvent:event];
+    [[self txtCarnet]resignFirstResponder];
+    [[self txtNombre]resignFirstResponder];
+    [[self txtTelefono]resignFirstResponder];
+    [[self txtDui]resignFirstResponder];
+    [[self txtNit]resignFirstResponder];
+    [[self txtEmail]resignFirstResponder];
+}
+
 @end
