@@ -12,6 +12,7 @@
     NSMutableArray *arrayProyecto;
     sqlite3 *encargadoDB;
     NSString *dbPathString;
+    AppDelegate *appDelegate;
 }
 
 @end
@@ -33,7 +34,14 @@
     arrayProyecto = [[NSMutableArray alloc]init];
     [[self ProyectoTablaView]setDelegate:self];
     [[self ProyectoTablaView]setDataSource:self];
-    [self crearOabrirDB];
+    //[self crearOabrirDB];
+    [_idProyectoField setDelegate:self];
+    [_nombreProyectoField setDelegate:self];
+    [_idTipoProyecto setDelegate:self];
+    [_idEncargado setDelegate:self];
+    [_idSolicitante setDelegate:self];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+
     
 }
 
@@ -132,20 +140,23 @@
 
 - (IBAction)insertar:(id)sender {
     char *error;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO PROYECTO(NOMBRE,IDTIPOPROYECTO,IDENCARGADO,IDSOLICITANTE) values ('%s','%d','%d','%d')", [self.nombreProyectoField.text UTF8String],[self.idTipoProyecto.text intValue],[self.idEncargado.text intValue],[self.idSolicitante.text intValue]];
         const char *insert_stmt=[insert_Stmt UTF8String];
-        
+        //sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error);
+        //NSLog(@"Error de insertado: %s", sqlite3_errmsg(encargadoDB));
         if (sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error)==SQLITE_OK) {
-            NSLog(@"PRoyecto Insertado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Proyecto insertado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
             Proyecto *proyecto=[[Proyecto alloc]init];
             [proyecto setNombreProyecto:self.nombreProyectoField.text];
-            [proyecto setIdTipoProyecto:[self.idTipoProyecto.text intValue] ];
+            [proyecto setIdTipoProyecto:[self.idTipoProyecto.text intValue]];
             [proyecto setIdEncargado:[self.idEncargado.text intValue]];
             [proyecto setIdSolicitante:[self.idSolicitante.text intValue]];
             [arrayProyecto addObject:proyecto];
         }else{
-            NSLog(@"Tipo de Proyecto no Insertado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Proyecto no insertado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
         }
         sqlite3_close(encargadoDB);
         
@@ -157,7 +168,7 @@
 - (IBAction)consultar:(id)sender {
     
     sqlite3_stmt *statement;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         [arrayProyecto removeAllObjects];
         NSString *querySql=[NSString stringWithFormat:@"SELECT * FROM PROYECTO"];
         const char *querysql=[querySql UTF8String];
@@ -167,17 +178,17 @@
                 NSString *idproyecto1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
                 
                 
-                NSString *nombre1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+                NSString *idSolicitante1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
                 
                 NSString *idtipoProyecto1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
                 
                 NSString *idEncargado1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
                 
-                NSString *idSolicitante1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
+                NSString *nombre1=[[NSString alloc]initWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
                 
                 Proyecto *proyecto =[[Proyecto alloc]init];
                 [proyecto setIdProyecto:[idproyecto1 intValue]];
-                [proyecto setNombreProyecto:nombre1];
+                [proyecto setNombreProyecto:nombre1] ;
                 [proyecto setIdTipoProyecto:[idtipoProyecto1 intValue]];
                 [proyecto setIdEncargado:[idEncargado1 intValue]];
                 [proyecto setIdSolicitante:[idSolicitante1 intValue]];
@@ -185,8 +196,8 @@
             }
         }
         else {
-            NSLog(@"Lista Vacia");
-        }
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Lista vacìa" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];        }
         sqlite3_close(encargadoDB);
     }
     [[self ProyectoTablaView]reloadData];
@@ -194,13 +205,13 @@
 
 - (IBAction)actualizar:(id)sender {
     static sqlite3_stmt *statement=nil;
-    if (sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK) {
+    if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
         char *update_Stmt="UPDATE PROYECTO SET NOMBRE=?, IDTIPOPROYECTO=?,IDENCARGADO=?, IDSOLICITANTE=? WHERE IDPROYECTO=? ";
         if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK)
         {
             sqlite3_bind_text(statement,1,[self.nombreProyectoField.text UTF8String], -1, SQLITE_TRANSIENT);
-            sqlite3_bind_int(statement,2,[self.idProyectoField.text intValue]);
-            sqlite3_bind_int(statement,3,[self.idProyectoField.text intValue]);
+            sqlite3_bind_int(statement,2,[self.idTipoProyecto.text intValue]);
+            sqlite3_bind_int(statement,3,[self.idEncargado.text intValue]);
             sqlite3_bind_int(statement,4,[self.idSolicitante.text intValue]);
             sqlite3_bind_int(statement,5,[self.idProyectoField.text intValue]);
             
@@ -213,11 +224,13 @@
             [proyecto setIdEncargado:[self.idEncargado.text intValue]];
             [proyecto setIdSolicitante:[self.idSolicitante.text intValue]];
             [arrayProyecto addObject:proyecto];
-            NSLog(@"Proyecto modificado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Proyecto modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
         }
         else
         {
-            NSLog(@"Proyecto no modificado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Proyecto no modificado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
             
         }
         sqlite3_close(encargadoDB);
@@ -231,12 +244,16 @@
 
 -(void)deleteData:(NSString *)deleteQuery{
     char *error;
-    if(sqlite3_open([dbPathString UTF8String], &encargadoDB)==SQLITE_OK){
+    if(sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK){
+        sqlite3_exec(encargadoDB,[deleteQuery UTF8String],NULL,NULL,&error);
+        NSLog(@"Error de borrado: %s", sqlite3_errmsg(encargadoDB));
         if(sqlite3_exec(encargadoDB,[deleteQuery UTF8String],NULL,NULL,&error)==SQLITE_OK){
-            NSLog(@"Proyecto Eliminado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Proyecto eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
         }
         else{
-            NSLog(@"Alumno no eliminado");
+            UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Error de operación" message:@"Proyecto no eliminado" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+            [alerta show];
         }
         sqlite3_close(encargadoDB);
         
@@ -246,7 +263,7 @@
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(editingStyle==UITableViewCellEditingStyleDelete){
         Proyecto *proyecto = [arrayProyecto objectAtIndex:indexPath.row];
-        /*[[self deleteData: [NSString stringWithFormat:@"DELETE FROM PROYECTO WHERE IDPROYECTO IS '%s",[[NSString stringWithFormat:@"%d", proyecto.idProyecto] UTF8String]]]];*/
+        [self deleteData: [NSString stringWithFormat:@"DELETE FROM PROYECTO WHERE IDPROYECTO IS %i", proyecto.idProyecto]];
         
          [arrayProyecto removeObjectAtIndex:indexPath.row];
          [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];

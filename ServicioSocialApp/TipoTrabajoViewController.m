@@ -72,9 +72,10 @@
 - (IBAction)insertarTipoTrabajo:(id)sender {
     char *error;
     if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
-        NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO tipotrabajo (NULL,'%s','%s')",[self.txtNombre.text UTF8String],[self.txtValor.text UTF8String]];
+        NSString *insert_Stmt=[NSString stringWithFormat:@"INSERT INTO tipotrabajo values(null,'%s','%s')",[self.txtNombre.text UTF8String],[self.txtValor.text UTF8String]];
         const char *insert_stmt=[insert_Stmt UTF8String];
-        
+        //sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error);
+        //NSLog(@"Error de insercion %s", sqlite3_errmsg(encargadoDB));
         if (sqlite3_exec(encargadoDB, insert_stmt, NULL, NULL, &error)==SQLITE_OK) {
             UIAlertView *alerta = [[UIAlertView alloc] initWithTitle:@"Mensaje" message:@"Tipo de trabajo insertado correctamente" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
             [alerta show];
@@ -128,7 +129,9 @@
 - (IBAction)actualizarTipoTrabajo:(id)sender {
     static sqlite3_stmt *statement=nil;
     if (sqlite3_open([appDelegate.dataBasePath UTF8String], &encargadoDB)==SQLITE_OK) {
-        char *update_Stmt="UPDATE tipotrabajo SET nombre=?, valor=? WHERE idtipoproyecto=? ";
+        char *update_Stmt="UPDATE tipotrabajo SET nombre=?, valor=? WHERE idtipotrabajo=? ";
+        //sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL);
+        //NSLog(@"Error de insercion %s", sqlite3_errmsg(encargadoDB));
         if (sqlite3_prepare_v2(encargadoDB, update_Stmt, -1, &statement, NULL)==SQLITE_OK){
             sqlite3_bind_text(statement,1,[self.txtNombre.text UTF8String], -1, SQLITE_TRANSIENT);
             sqlite3_bind_text(statement,2,[self.txtValor.text UTF8String], -1, SQLITE_TRANSIENT);

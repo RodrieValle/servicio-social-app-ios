@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "sqlite3.h"
 #import "Proyecto.h"
+#import "AppDelegate.h"
 
-@interface ProyectoViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ProyectoViewController : UIViewController<UITextFieldDelegate, UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *idProyectoField;
 @property (weak, nonatomic) IBOutlet UITextField *nombreProyectoField;
 @property (weak, nonatomic) IBOutlet UITextField *idTipoProyecto;
