@@ -19,7 +19,7 @@
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    self.dataBasePath = [documentsDirectory stringByAppendingPathComponent:@"servicioSocial.s3db"];
+    self.dataBasePath = [documentsDirectory stringByAppendingPathComponent:@"servicioSocialDB.s3db"];
     [self cargarBaseDeDatos];
     return YES;
 }
@@ -30,11 +30,11 @@
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"servicioSocial.s3db"];
+    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"servicioSocialDB.s3db"];
     
     exito = [filemanager fileExistsAtPath:writableDBPath];
     if(exito) return;
-    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"servicioSocial.s3db"];
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"servicioSocialDB.s3db"];
     
     exito  = [filemanager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
     
